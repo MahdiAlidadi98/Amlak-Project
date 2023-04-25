@@ -1,0 +1,269 @@
+@font-face {
+    font-family: "vazir"!important;
+    src: url("../fonts/Vazirmatn-Regular.woff2");
+}
+
+body{
+    font-family: 'vazir'!important;
+    font-size:1.2rem !important;
+}
+
+.text a{
+    font-size: 1rem !important;
+}
+
+#nav-sidebar a {
+    font-size: 1rem !important;
+}
+
+#result_list td,#result_list th{
+    font-size: 0.85rem!important;
+    font-family: 'vazir'!important;
+}
+
+#nav-sidebar .module td .addlink{
+    white-space: nowrap;
+    text-align: end;
+    font-size: .75rem!important;
+}
+
+#changelist-filter h3{
+    font-weight: 700 !important;
+}
+
+#changelist-filter li a{
+    font-size: .94rem!important;
+    overflow: hidden!important;
+}
+
+
+ /* --  Bootstrap Admin -_ */
+
+#nav-sidebar table{
+    display: flex!important;
+    flex-direction: column!important;
+}
+h1{
+    font-size: 1.6rem!important;
+}
+h2{
+  font-size: 1.34rem;  
+}
+h3{
+    font-size: .95rem!important;
+}
+#content-main > .app-app > table ,#content-main > .app-auth > table,#content-main > .app-accounts > table{
+    display: flex!important;
+    flex-direction: column!important;   
+}
+#content-main a {
+    font-size:.90rem!important;
+}
+.submit-row a.deletelink
+{
+    height:auto!important;
+}
+.aligned label{
+    font-size: .95rem!important;
+}
+
+#changelist-search input[type='text']{
+    height: auto!important;
+}
+
+#user-tools a{
+    font-size: 1rem!important;
+}
+
+a.closelink{
+    height: auto!important;
+}
+  a.cancel-link{
+    height: auto!important;
+    border-radius: 4px!important;
+    padding: 10px 15px !important;
+    font-size:1.2rem!important;
+    line-height:inherit!important;
+}
+
+.sticky > #nav-filter{
+    display: none!important;
+}
+
+#changelist-filter h2{
+    font-size: 17px!important;
+    border-radius: 4px!important;
+    padding: 5px 15px!important;
+    font-weight: 600;
+}
+
+div.app-web table{
+    display:flex;
+    flex-direction: column;
+}
+
+#user-tools {font-size:1rem;}
+#user-tools strong{font-size: 1.2rem;font-family: sahel;color: white;font-weight: 600;}
+
+#header{background: #353535!important;}
+
+div.breadcrumbs{
+    background: #3b3b3b!important;
+}
+
+.module h2, .module caption, .inline-group h2{
+    background: #718174 !important;
+    border-radius: 3px;
+}
+.inline-related h2, .inline-group h2{
+  font-size: 1.1rem!important;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+      --primary: #79aec8;
+      --secondary: #417690;
+      --accent: #f5dd5d;
+      --primary-fg: #fff;
+    
+      --body-fg: #333;
+      --body-bg: #fff;
+      --body-quiet-color: #666;
+      --body-loud-color: #000;
+    
+      --header-color: #ffc;
+      --header-branding-color: var(--accent);
+      --header-bg: var(--secondary);
+      --header-link-color: var(--primary-fg);
+    
+      --breadcrumbs-fg: #c4dce8;
+      --breadcrumbs-link-fg: var(--body-bg);
+      --breadcrumbs-bg: var(--primary);
+    
+      --link-fg: #447e9b;
+      --link-hover-color: #036;
+      --link-selected-fg: #5b80b2;
+    
+      --hairline-color: #e8e8e8;
+      --border-color: #ccc;
+    
+      --error-fg: #ba2121;
+    
+      --message-success-bg: #dfd;
+      --message-warning-bg: #ffc;
+      --message-error-bg: #ffefef;
+    
+      --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
+      --selected-bg: #e4e4e4; /* E.g. selected table cells */
+      --selected-row: #ffc;
+    
+      --button-fg: #fff;
+      --button-bg: var(--primary);
+      --button-hover-bg: #609ab6;
+      --default-button-bg: var(--secondary);
+      --default-button-hover-bg: #205067;
+      --close-button-bg: #888; /* Previously #bbb, contrast 1.92 */
+      --close-button-hover-bg: #747474;
+      --delete-button-bg: #ba2121;
+      --delete-button-hover-bg: #a41515;
+    
+      --object-tools-fg: var(--button-fg);
+      --object-tools-bg: var(--close-button-bg);
+      --object-tools-hover-bg: var(--close-button-hover-bg);
+    }
+      }
+@media (prefers-color-scheme: dark) {
+:root {
+  --primary: #79aec8;
+  --secondary: #417690;
+  --accent: #f5dd5d;
+  --primary-fg: #fff;
+
+  --body-fg: #333;
+  --body-bg: #fff;
+  --body-quiet-color: #666;
+  --body-loud-color: #000;
+
+  --header-color: #ffc;
+  --header-branding-color: var(--accent);
+  --header-bg: var(--secondary);
+  --header-link-color: var(--primary-fg);
+
+  --breadcrumbs-fg: #c4dce8;
+  --breadcrumbs-link-fg: var(--body-bg);
+  --breadcrumbs-bg: var(--primary);
+
+  --link-fg: #447e9b;
+  --link-hover-color: #036;
+  --link-selected-fg: #5b80b2;
+
+  --hairline-color: #e8e8e8;
+  --border-color: #ccc;
+
+  --error-fg: #ba2121;
+
+  --message-success-bg: #dfd;
+  --message-warning-bg: #ffc;
+  --message-error-bg: #ffefef;
+
+  --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
+  --selected-bg: #e4e4e4; /* E.g. selected table cells */
+  --selected-row: #ffc;
+
+  --button-fg: #fff;
+  --button-bg: var(--primary);
+  --button-hover-bg: #609ab6;
+  --default-button-bg: var(--secondary);
+  --default-button-hover-bg: #205067;
+  --close-button-bg: #888; /* Previously #bbb, contrast 1.92 */
+  --close-button-hover-bg: #747474;
+  --delete-button-bg: #ba2121;
+  --delete-button-hover-bg: #a41515;
+
+  --object-tools-fg: var(--button-fg);
+  --object-tools-bg: var(--close-button-bg);
+  --object-tools-hover-bg: var(--close-button-hover-bg);
+}
+  }
+
+
+.stacked_collapse-toggle{
+    cursor: pointer!important;
+    color: #000000!important;
+    border-radius: 4px!important;
+    font-weight: 700!important;
+    padding: 1px 7px!important;
+    background: #a8caae!important;
+    border: none!important;
+    text-decoration: none!important;
+}
+form > div .submit-row > input[type="submit"]{
+  background:#413e3e!important;
+  transition: all ease .4s;
+}
+form > div .submit-row > input[type="submit"]:hover{
+  background:#000000!important;
+  box-shadow:1px 1px 2px black;
+}
+.djn-group-nested .inline-related .djn-fieldset h2{
+  background:#515151!important;
+  color:white;
+  font-weight:500;
+  font-size:.8rem!important;
+}
+.djn-group-nested{
+  margin-bottom:15px!important;
+}
+.inline-group .tabular tr.has_original td{
+  padding:6px 1px!important;
+}
+.djn-fieldset > .djn-items >.djn-item > h3 > a{
+  margin-left:4px!important;
+}
+
+
+#login-form .submit-row input{
+    padding: 10px 71px;
+    background: #474847;
+    box-shadow: 2px 2px 1px #454545;
+}

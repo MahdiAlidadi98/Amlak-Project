@@ -1,0 +1,363 @@
+{% extends 'base.html' %}
+{% block title %}خرید و فروش ملک{% endblock %}
+
+{% block moptions %}
+<div class=" container cst d-flex justify-content-center">
+  <ul class="sdf d-flex">
+    <li><a href="  {% url 'sell' %}">خرید و فروش</a></li>
+    <li><a href="{% url 'rent' %}">رهن و اجاره</a></li>
+  </ul>
+</div>
+{% endblock %}
+
+
+{% block search %}
+<div class="hform container-fluid d-flex justify-content-center mb-3">
+  <form id="hform" method="POST" class="shadow-sm">
+    <div class="d-flex mt-2 p-3 row justify-content-between">
+      <div class="col-lg-2 col-md-6 d-flex flex-column">
+        <div class="label"><span>محدوده ملک</span></div>
+        <div class="custom-select-wrapper">
+          <div class="custom-select">
+            <div class="custom-select__trigger"><span>همه</span>
+              <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+              <span class="custom-option selected" data-value="allaria">همه</span>
+              <span class="custom-option" data-value="ekbatan">اکباتان</span>
+              <span class="custom-option" data-value="bime">بیمه</span>
+            </div>
+          </div>
+        </div>
+      </div> 
+    
+      <div class="col-lg-3 col-md-6 d-flex flex-column">
+        <div class="label"><span>نوع ملک</span></div>
+        <div class="custom-select-wrapper">
+          <div class="custom-select">
+            <div class="custom-select__trigger"><span>همه</span>
+              <div class="arrow"></div>
+            </div>
+            <div class="custom-options">
+              <span class="custom-option selected" data-value="alltype">همه</span>
+              <span class="custom-option" data-value="apartment">آپارتمان</span>
+              <span class="custom-option" data-value="kolangi">کلنگی</span>
+              <span class="custom-option" data-value="office">اداری و تجاری</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-5 flex-grow-1 d-flex flex-column JU">
+        <div class="label"><span>بازه قیمت (میلیارد)</span></div>
+        <div class="price d-flex justify-content-around position-relative">
+          <div class="d-flex flex-column">
+            <div id="datalistmaxp" class="datalist">
+              <input id="maxp" tabindex="2" class="datalist-input" autocomplete="off" type="text" pattern="[0-9.]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="بیشترین قیمت">
+              <i id="datalist-icon" class="icon iconfont icon-arrow"></i>
+              <ul id="datalistmaxp-ul" class="datalist-ul" style="z-index:10;"></ul>
+            </div>
+            <label for="maxp">حداکثر</label>
+            </div>
+          <div class="d-flex flex-column">
+            <div id="datalistminp" class="datalist">
+              <input id="minp" tabindex="1" class="datalist-input" autocomplete="off" type="text" pattern="[0-9.]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="کمترین قیمت">
+              <i id="datalist-icon" class="icon iconfont icon-arrow"></i>
+              <ul id="datalistminp-ul" class="datalist-ul" style="left:-15px!important;z-index:10"></ul>
+            </div>
+            <label for="minp">حداقل</label>
+          </div>
+        
+        </div>
+        </div>
+        <div class="col-lg-2 col-md-5 flex-grow-1 d-flex flex-column JU">
+          <div class="label"><span>بازه متراژ (متر)</span></div>
+          <div class="price d-flex justify-content-around position-relative">
+            <div class="d-flex flex-column">
+              <div id="datalistmetmax" class="datalist">
+                <input id="metmax" tabindex="4" class="datalist-input" autocomplete="off" id="metmax" type="text" pattern="[0-9.]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="بیشترین متراژ">
+                <i id="datalist-icon" class="icon iconfont icon-arrow"></i>
+                <ul id="datalistmetmax-ul" class="datalist-ul" style="z-index:9;"></ul>
+              </div>
+              <label for="metmax">حداکثر</label>
+              </div>
+            <div class="d-flex flex-column">
+              <div id="datalistmetmin" class="datalist">
+                <input id="metmin" tabindex="3" class="datalist-input" autocomplete="off" id="metmin" type="text" pattern="[0-9.]+" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" placeholder="کمترین متراژ">
+                <i id="datalist-icon" class="icon iconfont icon-arrow"></i>
+                <ul id="datalistmetmin-ul" class="datalist-ul" style="left:-15px!important;z-index:9"></ul>
+              </div>
+              <label for="metmin">حداقل</label>
+            </div>
+          
+          </div>
+          </div>
+      <div class="col-lg-2 col-md-12 align-self-center d-flex ali">
+        <input type="hidden" data-value="12" id="cunt">
+        <input type="submit" tabindex="-1" id="search" class="btn btn-success px-5 py-3" value="جستجو">
+        <input tabindex="5" onfocus="document.getElementById('minp').focus()" style="opacity:0;position:absolute;height:0px;width:0px;left:15px"></div>
+    </div>
+  </form>
+  <input type="hidden" data-value="allaria" id="areaps">
+  <input type="hidden" data-value="alltype" id="mtypeps">
+  <input type="hidden" data-value="0" id="minps">
+  <input type="hidden" data-value="1000000000000" id="maxps">
+  <input type="hidden" data-value="0" id="metminps">
+  <input type="hidden" data-value="10000" id="metmaxps">
+      </div>
+{% endblock %} 
+
+{% block main%}
+{% load humanize %}
+<style>
+  .sdf li:nth-child(1){
+    background: #5e897c!important;
+  }
+  .sdf li:nth-child(1) a{
+    color: white!important;
+    text-shadow: 1px 1px 1px #5f5f5f!important;
+  }
+</style>
+    <div class="container mbwi">
+      <div class="row">
+        {% for file in files %}
+        <div class="col-lg-4 col-xl-3 col-md-6 flex-column">
+          <div class="d-flex flex-row-reverse flex-md-column post mt-4 rounded shadow-sm border ">
+            <div class="imgContent">
+              <a href="{% url 'detsell' file.id %}">
+                <img class="rounded" src="{{file.image}}">
+              </a>
+            </div>
+            <div class="cpost d-flex flex-column">
+              <div class="titlePost">
+                <h2 class="citem text-black"><a href="{% url 'detsell' file.id %}">{{file.title}}</a> </h2>
+              </div>
+              <div class="tprice d-flex flex-column flex-grow-1">
+                <span>قیمت کل: <span class="totalPrice">{{ file.priceK|floatformat:0|intcomma:False }}</span> تومان</span>
+                <span>هر متر: <span class="priceM">{{ file.priceM|floatformat:0|intcomma:False }}</span> تومان</span>
+              </div>
+              <div class="details">
+                <div class="container d-flex justify-content-between">
+                <div><i class="fa fa-line-chart" aria-hidden="true"></i><span> {{file.metraj}} متر</span></div>
+                  <div><i class="fa fa-bed" aria-hidden="true"></i><span> {{file.room_qty}} خواب </span></div>
+                  <div> <i class="fa fa-map-marker" aria-hidden="true"></i><span> {{file.area}}</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+       {% endfor %}
+      </div>
+    </div>
+ {% endblock %}
+ {% block jslib %}
+ {{block.super}}
+ <script>
+  function ssrch(n)
+  {
+    $.post("{{ request.path }}",
+    {
+      area   :  $("#areaps").attr("data-value"),
+      mtype  :  $("#mtypeps").attr("data-value"),
+      minp   :  $("#minps").attr("data-value"),
+      maxp   :  $("#maxps").attr("data-value"),
+      metmin :  $("#metminps").attr("data-value"),
+      metmax :  $("#metmaxps").attr("data-value"),
+      c      :  $("#cunt").attr("data-value"),
+    },
+    function(data,status){
+      if(n == 1){
+     $(".mbwi > .row").empty();
+      }
+     $.each(data["data"],function(k,v){
+        r = $("<div class='col-xl-3 col-lg-4 col-md-6 flex-column'><div class='d-flex flex-row-reverse flex-md-column post mt-4 rounded shadow-sm border '><div class='imgContent'><a href='#'><img class='rounded' src=''></a></div><div class='cpost d-flex flex-column'><div class='titlePost'><h2 class='citem text-black'><a href=''></a></h2></div><div class='tprice d-flex flex-column flex-grow-1'><span> قیمت کل : <span class='totalPrice'></span> تومان </span><span>قیمت هر متر : <span class='priceM'></span> تومان</span></div><div class='details'><div class='container d-flex justify-content-between'><div><i class='fa fa-line-chart' aria-hidden='true'></i><span id='metraj'></span></div><div><i class='fa fa-bed' aria-hidden='true'></i><span id='bed'></span></div><div><i class='fa fa-map-marker' aria-hidden='true'></i><span id='cal'></span></div></div></div></div></div></div>");
+        r.find("img.rounded").attr("src",v.image);
+        r.find(".imgContent > a").attr("href","{{request.path}}"+"/"+v.id);
+        r.find(".titlePost .citem a").text(v.title);
+        r.find(".titlePost .citem a").attr("href","{{request.path}}"+"/"+v.id);
+        r.find(".totalPrice").text(v.priceK).prettynumber({delimiter : ','});
+        r.find(".priceM").text(v.priceM).prettynumber({delimiter : ','});
+        r.find("#metraj").text(" "+v.metraj+" متر");
+        r.find("#bed").text(" "+v.room_qty+" خواب");
+        r.find("#cal").text(" "+v.area);
+        $(r).appendTo(".mbwi > .row").hide().fadeIn(2000);
+        $("#cunt").attr("data-value",parseInt($("#cunt").attr("data-value"))+12);
+      });
+    });
+  }
+
+
+    $(document).ready(function(){
+      var counter = 0;
+      $("#search").click(function(e){
+          e.preventDefault();
+          $("#cunt").attr("data-value","0");
+          $("#areaps").attr("data-value",$("#hform > div > div").eq(0).find(".selected").attr("data-value"));
+          $("#mtypeps").attr("data-value",$("#hform > div > div").eq(1).find(".selected").attr("data-value"));
+          if ($("#minp").val() == '')
+          $("#minps").attr("data-value",0);
+        else
+          $("#minps").attr("data-value",$("#minp").val()*1000000);
+
+        if ($("#maxp").val() == '')
+          $("#maxps").attr("data-value",10000000000000);
+        else
+          $("#maxps").attr("data-value",$("#maxp").val()*1000000);
+
+        if ($("#metmin").val() == '')
+          $("#metminps").attr("data-value",0);
+        else
+          $("#metminps").attr("data-value",$("#metmin").val());
+
+        if($("#metmax").val() == '')
+          $("#metmaxps").attr("data-value",30000);
+        else
+        $("#metmaxps").attr("data-value",$("#metmax").val());
+          ssrch(1);
+          
+      });
+      if (counter == 0){
+        $(document.body).on('touchmove', function(e) {
+          counter++;
+          ssrch(2);
+      
+     });
+      $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() == $(document).height()){ 
+          counter++;
+          ssrch(2);
+      }
+    });
+  }
+    });
+  </script>
+  <script>
+    class DataList {
+      constructor(containerId, inputId, listId, options) {
+        this.containerId = containerId;
+        this.inputId = inputId;
+        this.listId = listId;
+        this.options = options;
+      }
+    
+      create(filter = "") {
+        const list = document.getElementById(this.listId);
+        const filterOptions = this.options.filter(
+          d => filter === "" || d.text.includes(filter)
+        );
+    
+        if (filterOptions.length === 0) {
+          list.classList.remove("active");
+        } else {
+          list.classList.add("active");
+        }
+    
+        list.innerHTML = filterOptions
+          .map(o => `<li data-value=${o.v} id=${o.value}>${o.text}</li>`)
+          .join("");
+      }
+    
+      addListeners(datalist) {
+        const container = document.getElementById(this.containerId);
+        const input = document.getElementById(this.inputId);
+        const list = document.getElementById(this.listId);
+        container.addEventListener("click", e => {
+          if (e.target.id === this.inputId) {
+            container.classList.toggle("active");
+          } else if (e.target.id === "datalist-icon") {
+            container.classList.toggle("active");
+            input.focus();
+          }
+        });
+    
+        input.addEventListener("input", function(e) {
+          if (!container.classList.contains("active")) {
+            container.classList.add("active");
+          }
+    
+          datalist.create(input.value);
+        });
+    
+        list.addEventListener("click", function(e) {
+          if (e.target.nodeName.toLocaleLowerCase() === "li") {
+            input.value = e.target.getAttribute("data-value");
+            container.classList.remove("active");
+            input.setAttribute("data-value",e.target.getAttribute("data-value"));
+          }
+        });
+      }
+    }
+    
+    const data = [
+      { value: "0.5", text: "500 میلیون تومان",v:"0.5"},
+      { value: "1", text: "1 میلیارد تومان",v:"1"},
+      { value: "1.5", text: "1/5 میلیارد تومان",v:"1.5"},
+      { value: "2", text: "2 میلیارد تومان",v:"2"},
+      { value: "2.5", text: "2/5 میلیارد تومان",v:"2.5"},
+      { value: "3", text: "3 میلیارد تومان",v:"3"},
+      { value: "3.5", text: "3/5 میلیارد تومان",v:"3.5"},
+      { value: "4", text: "4 میلیارد تومان",v:"4"},
+      { value: "4.5", text: "4/5 میلیارد تومان",v:"4.5"},
+      { value: "5", text: "5 میلیارد تومان",v:"5"},
+      { value: "5.5", text: "5/5 میلیارد تومان",v:"5.5"},
+      { value: "6", text: "6 میلیارد تومان",v:"6"},
+      { value: "6.5", text: "6/5 میلیارد تومان",v:"6.5"},
+      { value: "7", text: "7 میلیارد تومان",v:"7"},
+      { value: "8", text: "8 میلیارد تومان",v:"8"},
+      { value: "9", text: "9 میلیارد تومان",v:"9"},
+      { value: "10", text: "10 میلیارد تومان",v:"10"},
+    ];
+
+     
+    const data2 = [
+    { value: "50", text: "50 متر",v:"50"},
+    { value: "65", text: "65 متر",v:"65"},
+    { value: "80", text: "80 متر",v:"80"},
+    { value: "90", text: "90 متر",v:"90"},
+    { value: "100", text: "100 متر",v:"100"},
+    { value: "120", text: "120 متر",v:"120"},
+    { value: "150", text: "150 متر",v:"150"},
+    { value: "180", text: "180 متر",v:"180"},
+    { value: "200", text: "200 متر",v:"200"},
+    { value: "250", text: "250 متر",v:"250"},
+    { value: "300", text: "300 متر",v:"300"},
+
+  ];
+
+
+    const datalistmaxp = new DataList(
+      "datalistmaxp",
+      "maxp",
+      "datalistmaxp-ul",
+      data
+    );
+    datalistmaxp.create();
+    datalistmaxp.addListeners(datalistmaxp);
+
+    const datalistminp = new DataList(
+      "datalistminp",
+      "minp",
+      "datalistminp-ul",
+      data
+    );
+    datalistminp.create();
+    datalistminp.addListeners(datalistminp);
+
+    const datalistmetmax = new DataList(
+      "datalistmetmax",
+      "metmax",
+      "datalistmetmax-ul",
+      data2
+    );
+    datalistmetmax.create();
+    datalistmetmax.addListeners(datalistmetmax);
+
+    const datalistmetmin = new DataList(
+      "datalistmetmin",
+      "metmin",
+      "datalistmetmin-ul",
+      data2
+    );
+    datalistmetmin.create();
+    datalistmetmin.addListeners(datalistmetmin);
+  </script>
+ {% endblock %}
